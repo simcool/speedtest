@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SpeedScanAdvanced</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="welcome">Welcome to SpeedScan Advance. The most informative internet speed test application. Press \'Begin SpeedScan\' to run application</string>
+    <string name="speedScanButtonText">Begin SpeedScan</string>
+
+</resources>
