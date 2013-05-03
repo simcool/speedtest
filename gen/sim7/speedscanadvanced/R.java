@@ -37,7 +37,7 @@ public final class R {
     public static final class layout {
         public static final int activity_calculate=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int activity_third=0x7f030002;
+        public static final int activity_results=0x7f030002;
     }
     public static final class menu {
         public static final int calculate=0x7f070000;

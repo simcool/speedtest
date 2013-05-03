@@ -212,6 +212,7 @@ public class CalculateActivity extends Activity {
 	            output.flush();
 	            output.close();
 	            input.close();
+	            // End of borrowed and then modified code.
 	        } catch (Exception e) {
 	        }
 	        return null;

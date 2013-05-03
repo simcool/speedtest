@@ -31,7 +31,7 @@ public class ResultsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_third);
+		setContentView(R.layout.activity_results);
 
 		
 		TextView t =new TextView(this); // initiates 2 TextView objects
