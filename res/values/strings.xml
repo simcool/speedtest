@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="welcome">Welcome to SpeedScan Advance. The most informative internet speed test application. Press \'Begin SpeedScan\' to run application</string>
     <string name="speedScanButtonText">Begin SpeedScan</string>
+    <string name="title_activity_calculate">CalculateActivity</string>
+    <string name="title_activity_third">ThirdActivity</string>
 
 </resources>
