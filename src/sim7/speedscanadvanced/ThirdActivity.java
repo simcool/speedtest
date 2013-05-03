@@ -14,7 +14,7 @@ public class ThirdActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_third);
 		TextView t =new TextView(this); 
-		   DecimalFormat df = new DecimalFormat("#.##");
+		   DecimalFormat dFormatObject = new DecimalFormat("#.##");
 	    ;
 		Bundle extras = getIntent().getExtras();
 		long[] arrayB = extras.getLongArray("numbers");
@@ -23,21 +23,18 @@ public class ThirdActivity extends Activity {
 		double speedTime= (3799551.0*8.0)/finalTime; 
 				
 		t=(TextView)findViewById(R.id.textViewResults);
-	//	CalculateActivity.getTime1();
+	
 		TextView t2 =new TextView(this); 
 		t2=(TextView)findViewById(R.id.textViewMore);
-		System.out.println("first download time=" +arrayB[0]);
-		System.out.println("second download time=" +arrayB[1]);
-		System.out.println("difference milli time=" +finalMilTime);
-		System.out.println("difference double milli time=" +finalTime);
-		t.setText("Speed Test Results= \n"+
-		"Current Download speed \n"+ df.format(speedTime) +" kbps \n"
-		+df.format(speedTime/1000.0) +" mbps");
 		
-		t2.setText("This will download a 250 Megabyte file in " +df.format(250.0/(speedTime/8000.0))	
-				+	" seconds\n or " +df.format((250.0/(speedTime/8000.0))/60.0) + "minutes."+
-				"This will download a 1 Gigabyte file in " + df.format(250.0/(speedTime/8000.0)) + "seconds\n " +
-						"or" + df.format((250.0/(speedTime/8000.0))/60.0));
+		t.setText("Speed Test Results= \n"+
+		"Current Download speed \n"+ dFormatObject.format(speedTime) +" kbps \n"
+		+dFormatObject.format(speedTime/1000.0) +" mbps");
+		
+		t2.setText("This will download a 250 Megabyte file in " +dFormatObject.format(250.0/(speedTime/8192.0))	
+				+	" seconds\n or " +dFormatObject.format((250.0/(speedTime/8192.0))/60.0) + " minutes.\n"+
+				"This will download a 1 Gigabyte file in " + dFormatObject.format(1.0/(speedTime/8388608.0)) + " seconds\n " +
+						"or" + dFormatObject.format((1.0/(speedTime/8388608.0))/60.0) + "minutes");
 	
 	
 	

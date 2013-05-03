@@ -23,9 +23,9 @@
         android:id="@+id/textViewMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewResults"
+        android:layout_alignRight="@+id/textViewResults"
         android:layout_below="@+id/textViewResults"
-        android:layout_marginTop="157dp"
+        android:layout_marginTop="26dp"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
