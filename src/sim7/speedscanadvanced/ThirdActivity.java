@@ -20,17 +20,24 @@ public class ThirdActivity extends Activity {
 		long[] arrayB = extras.getLongArray("numbers");
 		long finalMilTime =arrayB[1] - arrayB[0];
 		double finalTime=  finalMilTime;
-		double speedTime= (1154856.0*8.0)/finalTime; 
+		double speedTime= (3799551.0*8.0)/finalTime; 
 				
 		t=(TextView)findViewById(R.id.textViewResults);
 	//	CalculateActivity.getTime1();
-		
-		
+		TextView t2 =new TextView(this); 
+		t2=(TextView)findViewById(R.id.textViewMore);
 		System.out.println("first download time=" +arrayB[0]);
 		System.out.println("second download time=" +arrayB[1]);
 		System.out.println("difference milli time=" +finalMilTime);
 		System.out.println("difference double milli time=" +finalTime);
-		t.setText("Speed Test Results= " + df.format(speedTime) +" kbps");
+		t.setText("Speed Test Results= \n"+
+		"Current Download speed \n"+ df.format(speedTime) +" kbps \n"
+		+df.format(speedTime/1000.0) +" mbps");
+		
+		t2.setText("This will download a 250 Megabyte file in " +df.format(250.0/(speedTime/8000.0))	
+				+	" seconds\n or " +df.format((250.0/(speedTime/8000.0))/60.0) + "minutes."+
+				"This will download a 1 Gigabyte file in " + df.format(250.0/(speedTime/8000.0)) + "seconds\n " +
+						"or" + df.format((250.0/(speedTime/8000.0))/60.0));
 	
 	
 	
