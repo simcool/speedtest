@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity{
@@ -15,7 +16,10 @@ public class MainActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-	
+		TextView t =new TextView(this); 
+		t=(TextView)findViewById(R.id.textViewCalculate);
+		t.setText("Welcome to \nSpeedScan Advanced\n- the most informative internet speed test " +
+				"application. Press button below to run application.");
 		setupMessageButton();
 	}
 

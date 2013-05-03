@@ -33,7 +33,7 @@ public class ThirdActivity extends Activity {
 		
 		t2.setText("This will download a 250 Megabyte file in " +dFormatObject.format(250.0/(speedTime/8192.0))	
 				+	" seconds\n or " +dFormatObject.format((250.0/(speedTime/8192.0))/60.0) + " minutes.\n"+
-				"This will download a 1 Gigabyte file in " + dFormatObject.format(1.0/(speedTime/8388608.0)) + " seconds\n " +
+				"\nThis will download a 1 Gigabyte file in " + dFormatObject.format(1.0/(speedTime/8388608.0)) + " seconds\n " +
 						"or" + dFormatObject.format((1.0/(speedTime/8388608.0))/60.0) + "minutes");
 	
 	
