@@ -21,27 +21,17 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-//declare the dialog as a member field of your activity
 
 public class CalculateActivity extends Activity {
 
-//	private String host = "93.188.160.14";
-//	private int timeOut = 5000;
 	private long firstDownloadTime;
 	private long secondDownloadTime;
-	private long finalDownloadTime;
 	private int num;
-//	private boolean status;
 	Button btnStartProgress;
 	ProgressDialog progressBar;
 	private int progressBarStatus = 0;
 	private Handler progressBarHandler = new Handler();
-	//private int total;
-	//private int fileLength;
-	private int doSomeTasks;
-	private long fileSize = 0;
-	// declare the dialog as a member field of your activity
-	
+
 	public int getNum(int theNum){
 		num= theNum;
 		return num;
@@ -61,15 +51,9 @@ public class CalculateActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calculate);
-		// instantiate it within the onCreate method
-		 //t=new TextView(this); 
 		addListenerOnButton();
 		setupMessageButton();  
-		//TextView t =new TextView(this); 
-		//t=(TextView)findViewById(R.id.textViewCalculate); 
-		  //  t.setText("Speed Test");
 	}    
-
 
 	private void setupMessageButton(){
 	// get a reference to the button
@@ -81,8 +65,8 @@ public class CalculateActivity extends Activity {
 			@Override
 			public void onClick(View v){
 			long array[]= {firstDownloadTime, secondDownloadTime};
-			Intent i = new Intent(CalculateActivity.this, ThirdActivity.class);
-			i.putExtra("numbers", array);
+			Intent i = new Intent(CalculateActivity.this, ResultsActivity.class);
+			i.putExtra("times", array);
 			startActivity(i);
 			}	
 		};	
@@ -107,12 +91,6 @@ public class CalculateActivity extends Activity {
 			//reset progress bar status
 			progressBarStatus = 0;
  
-			//reset filesize
-			fileSize = 0;
-			//reset progress bar status
-			progressBarStatus = 0;
-	
-			
 			new Thread(new Runnable() {
 				  public void run() {
 					while (progressBarStatus < 100) {
@@ -167,27 +145,10 @@ public class CalculateActivity extends Activity {
 	
 		
        public int doSomeTasks() {
-//       	 
-//	    		while (fileSize <= 1000000) {
-//	     
-//	    			fileSize++;
-//	     
-//	    			if (fileSize == 100000) {
-//	    				return 10;
-//	    			} else if (fileSize == 200000) {
-//	    				return 20;
-//	    			} else if (fileSize == 300000) {
-//	    				return 30;
-//	    			}
-//	    			// ...add your own
-	     
-return num; 
+
+	     return num; 
 	     }   		
-		//return (publishProgress((int) (total * 100 / fileLength)));
-	    	//	return 100;
-	    
-		
-		
+
 		
 	public class DownloadFile extends AsyncTask<String, Integer, String> {
 	    @Override
@@ -228,12 +189,7 @@ return num;
 	                output.write(data, 0, count);
 	            }
 	            
-	            getTime2();
-	            finalDownloadTime= secondDownloadTime - firstDownloadTime;
-	       
-	            //Toast.makeText(CalculateActivity.this, "Nano seconds download time= " + finalDownloadTime, 	
-	            //Toast.LENGTH_LONG).show();
-	           
+	            getTime2();        
 	            output.flush();
 	            output.close();
 	            input.close();

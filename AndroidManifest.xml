@@ -29,7 +29,7 @@
             <!-- android:label="@string/title_activity_calculate" > --> 
         </activity>
         <activity
-            android:name="sim7.speedscanadvanced.ThirdActivity"
+            android:name="sim7.speedscanadvanced.ResultsActivity"
             android:label="@string/title_activity_third" >
         </activity>
     </application>
