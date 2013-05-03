@@ -1,3 +1,26 @@
+/*
+ * Copyright 2013 Simeon Burns
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
+
+/*
+ * @author Simeon Burns
+ * simcool8@yahoo.com
+ * 
+ * CalculateActivity 
+ * This Activity is where file downloading
+ */
 package sim7.speedscanadvanced;
 
 import java.io.BufferedInputStream;
@@ -14,34 +37,31 @@ import android.os.Handler;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class CalculateActivity extends Activity {
 
-	private long firstDownloadTime;
-	private long secondDownloadTime;
-	private int num;
+	private long firstDownloadTime;// system time one
+	private long secondDownloadTime;// system time second
+	private int num;// holds the progressbar status
 	Button btnStartProgress;
 	ProgressDialog progressBar;
 	private int progressBarStatus = 0;
 	private Handler progressBarHandler = new Handler();
 
+// method that gives the current value to progressBarStatus	
 	public int getNum(int theNum){
 		num= theNum;
 		return num;
 	}
-
+// method to capture the 1st system time
 	public long getTime1(){
 		firstDownloadTime = System.currentTimeMillis();
 		return firstDownloadTime;
 	}
-	
+// method to capture the 2nd system time	
 	public long getTime2(){
 		secondDownloadTime = System.currentTimeMillis();
 		return secondDownloadTime;
@@ -64,7 +84,8 @@ public class CalculateActivity extends Activity {
 			
 			@Override
 			public void onClick(View v){
-			long array[]= {firstDownloadTime, secondDownloadTime};
+			long array[]= {firstDownloadTime, secondDownloadTime}; // gives times values to array
+			//on click go to next Activity
 			Intent i = new Intent(CalculateActivity.this, ResultsActivity.class);
 			i.putExtra("times", array);
 			startActivity(i);
@@ -81,7 +102,8 @@ public class CalculateActivity extends Activity {
 	 
 			   @Override
 			   public void onClick(View v) {
-		    progressBar = new ProgressDialog(v.getContext());
+		   // sets up the progress bar
+			progressBar = new ProgressDialog(v.getContext());
 			progressBar.setCancelable(true);
 			progressBar.setMessage("File downloading ...");
 			progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -96,7 +118,7 @@ public class CalculateActivity extends Activity {
 					while (progressBarStatus < 100) {
 	 
 					  // process some tasks
-					  progressBarStatus = doSomeTasks();
+					  progressBarStatus = barUpdate();
 	 
 					  // your computer is too fast, sleep 1 second
 					  try {
@@ -136,20 +158,20 @@ public class CalculateActivity extends Activity {
 			
 		// execute this when the downloader must be fired
 			DownloadFile downloadFile = new DownloadFile();
+			// link of the download file is placed below
     		downloadFile.execute("http://down.speedscan.3owl.com/Wildlife_Trimmed.zip");
  		
 	}
-	// usually, subclasses of AsyncTask are declared inside the activity class.
-	// that way, you can easily modify the UI thread from here
-	// was a private class
-	
+
 		
-       public int doSomeTasks() {
+       public int barUpdate() {
 
 	     return num; 
 	     }   		
 
-		
+	//	 code in DownloadFile was borrowed from online and now modified
+      // under fair use license by the GPL license
+       
 	public class DownloadFile extends AsyncTask<String, Integer, String> {
 	    @Override
 	    protected String doInBackground(String... sUrl) {
@@ -160,14 +182,13 @@ public class CalculateActivity extends Activity {
 	            // this will be useful so that you can show a typical 0-100% progress bar
 	            int fileLength = connection.getContentLength();
 	        
-	            // my added code
+	            // download in sd card
 	            File root = android.os.Environment.getExternalStorageDirectory();               
-
+	            // if the download folder does not exist, this will create it.	
 	            File dir = new File (root.getAbsolutePath() + "/download");
 	            if(dir.exists()==false) {
 	                 dir.mkdirs();
 	            }
-	            //simeon's added code
 	            
 	            // download the file
 	            String targetFileName = "al.jpg";
@@ -179,13 +200,11 @@ public class CalculateActivity extends Activity {
 	            int count;
 	            getTime1();
 	            
-	            
 	            while ((count = input.read(data)) != -1) {
 	                total += count;
 	                // publishing the progress....
 	               int temp= (int) (total * 100 / fileLength);
 	                	 getNum(temp);
-	               
 	                output.write(data, 0, count);
 	            }
 	            
@@ -198,13 +217,4 @@ public class CalculateActivity extends Activity {
 	        return null;
 	    }
 	}
-
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.calculate, menu);
-		return true;
-			}
-
-		}
+}
