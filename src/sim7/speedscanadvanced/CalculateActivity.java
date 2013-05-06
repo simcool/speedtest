@@ -191,7 +191,7 @@ public class CalculateActivity extends Activity {
 	            }
 	            
 	            // download the file
-	            String targetFileName = "test.jpg";
+	            String targetFileName = "test.zip";
 	            InputStream input = new BufferedInputStream(url.openStream());
 	            OutputStream output = new FileOutputStream(Environment.getExternalStorageDirectory() + "/download/" + targetFileName);
 	            

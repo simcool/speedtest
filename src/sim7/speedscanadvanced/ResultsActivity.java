@@ -53,7 +53,8 @@ public class ResultsActivity extends Activity {
 // text that displays all the results
 		t.setText("Speed Test Results= \n"+
 				"Current Download speed \n"+ dFormatObject.format(speedTime) +" kbps \n"
-				+dFormatObject.format(speedTime/1000.0) +" mbps");
+				+dFormatObject.format(speedTime/1000.0) +" mbps\n" +
+				dFormatObject.format(3799551.0/finalTime) +" KB\n");
 
 		t2.setText("This will download a 250 Megabyte file in " +dFormatObject.format(250.0/(speedTime/8192.0))	
 				+	" seconds\n or " +dFormatObject.format((250.0/(speedTime/8192.0))/60.0) + " minutes.\n"+
