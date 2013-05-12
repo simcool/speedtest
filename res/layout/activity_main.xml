@@ -17,7 +17,6 @@
         android:layout_height="88dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="96dp"
         android:text="Begin SpeedScan Test" />
 
     <TextView
@@ -26,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:text="@string/welcome"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginTop="72dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

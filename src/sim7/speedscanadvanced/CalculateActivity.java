@@ -189,7 +189,7 @@ public class CalculateActivity extends Activity {
 	            if(dir.exists()==false) {
 	                 dir.mkdirs();
 	            }
-	            
+
 	            // download the file
 	            String targetFileName = "test.zip";
 	            InputStream input = new BufferedInputStream(url.openStream());

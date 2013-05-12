@@ -34,11 +34,13 @@ public class MainActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		TextView t =new TextView(this); //creates a TextView Object
-		t=(TextView)findViewById(R.id.textViewCalculate);// object will now equal xml equivalent
+		t=(TextView)findViewById(R.id.textViewCalculate);
 		// displays initial welcome message
-		t.setText("Welcome to \nSpeedScan Advanced\n- the most informative internet speed test " +
-				"application. Press button below to run application.");
+		t.setText("Welcome to \nSpeedScan Advanced \n - the most informative Internet speed test " +
+				"application. Press button below to run application.\n" +
+				"You will need a sd card or external memory device for this program to work.\n");
 		setupMessageButton();
 	}
 
